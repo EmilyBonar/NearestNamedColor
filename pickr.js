@@ -1,5 +1,3 @@
-//const pickrContainer = document.querySelector('.pickr-container');
-
 const pickr = new Pickr({
 
     // Selector or element which will be replaced with the actual color-picker.
@@ -10,7 +8,7 @@ const pickr = new Pickr({
     container: 'body',
 
     // Which theme you want to use. Can be 'classic', 'monolith' or 'nano'
-    theme: 'nano',
+    theme: 'monolith',
 
     // Nested scrolling is currently not supported and as this would be really sophisticated to add this
     // it's easier to set this to true which will hide pickr if the user scrolls the area behind it.
@@ -98,7 +96,7 @@ const pickr = new Pickr({
         palette: true,
 
         preview: true, // Display comparison between previous state and new color
-        opacity: true, // Display opacity slider
+        opacity: false, // Display opacity slider
         hue: true,     // Display hue slider
 
         // show or hide components on the bottom interaction bar.
@@ -120,3 +118,5 @@ const pickr = new Pickr({
         },
     },
 });
+
+pickr.on('change', instance => {console.log('change', pickr.getColor().toRGBA().toString());});
