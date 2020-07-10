@@ -119,15 +119,20 @@ const pickr = new Pickr({
     },
 });
 
-pickr.on('change', instance => {
-    //let input = pickr.getColor().toRGBA().toString().match(/\d+/g);
-    //let RGB = [Number(input[0])+Number(input[1].slice(0,2))/100, Number(input[2])+Number(input[3].slice(0,2))/100, Number(input[4])+Number(input[5].slice(0,2))/100];
-    //document.getElementById("RGB_in").innerHTML = RGB;
+pickr.on('init', instance => {
+    update(pickr)
+});
 
+pickr.on('change', instance => {
+    update(pickr)
+});
+
+function update(pickr) {
     let HEX = pickr.getColor().toHEXA().toString();
     document.getElementById("HEX_in").innerHTML = HEX;
 
     let RGB = Colors.hex2rgb(HEX).RGB;
     document.getElementById("RGB_in").innerHTML = RGB;
-    console.log(RGB)
-});
+    
+    document.getElementById("COLOR_in").style.backgroundColor = HEX;
+}
