@@ -125,9 +125,7 @@ fetch('https://www.emilybonar.com/NearestNamedColor/colors.json')
 });
 
 
-pickr.on('init', instance => {
-    update(pickr)
-}).on('change', instance => {
+pickr.on('change', instance => {
     update(pickr)
 });
 
