@@ -19,7 +19,7 @@ const pickr = new Pickr({
     useAsButton: false,
 
     // Size of gap between pickr (widget) and the corresponding reference (button) in px
-    padding: 8,
+    padding: 10,
 
     // If true pickr won't be floating, and instead will append after the in el resolved element.
     // It's possible to hide it via .hide() anyway.
@@ -119,4 +119,15 @@ const pickr = new Pickr({
     },
 });
 
-pickr.on('change', instance => {console.log('change', pickr.getColor().toRGBA().toString());});
+pickr.on('change', instance => {
+    //let input = pickr.getColor().toRGBA().toString().match(/\d+/g);
+    //let RGB = [Number(input[0])+Number(input[1].slice(0,2))/100, Number(input[2])+Number(input[3].slice(0,2))/100, Number(input[4])+Number(input[5].slice(0,2))/100];
+    //document.getElementById("RGB_in").innerHTML = RGB;
+
+    let HEX = pickr.getColor().toHEXA().toString();
+    document.getElementById("HEX_in").innerHTML = HEX;
+
+    let RGB = Colors.hex2rgb(HEX).RGB;
+    document.getElementById("RGB_in").innerHTML = RGB;
+    console.log(RGB)
+});

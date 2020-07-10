@@ -6,18 +6,35 @@
         <link rel="stylesheet" type="text/css" href="mystyle.css">
         <!-- Place this tag in your head or just before your close body tag. -->
         <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Colors.js/1.2.4/colors.min.js"></script>
         <title>Nearest Named Color</title>
     </head>
 <body>
-    <section>
+    <div class="column">
         <h1>
             Nearest Named Color
         </h1>
-    </section>
-    <section>
+        <p>
+            Pick a color
+        </p>
+    </div>
+    <div class="column">
         <div class="color-picker"></div>
         <script src="pickr.js"></script>
         <br>
-    </section>
+        <table style='background-color: antiquewhite;width: 50%;'>
+            <tr>
+                <td id="RGB_in">0 0 0</td>
+                <td id="HEX_in">#000000</td>
+                <td class='color' id="COLOR_in">    </td>
+            </tr>
+            <tr>
+                <td id="RGB_out">0 0 0</td>
+                <td id="HEX_out">#000000</td>
+                <td class='color' id="COLOR_out">    </td>
+                <td id="NAME_out">Black</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
