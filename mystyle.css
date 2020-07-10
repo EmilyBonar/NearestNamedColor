@@ -22,13 +22,13 @@ h1 {
 
 .color {
   background-color: black;
-  width: 30px;
+  width: 100px;
   background-clip: content-box;
   border-radius: 5px;
   
 }
 
-table, tr, td {
+table, tr, td, th {
   border: 1px solid black;
   border-collapse: collapse;
   line-height: 25px;
