@@ -119,7 +119,7 @@ const pickr = new Pickr({
     },
 });
 var colors;
-fetch('/colors.json')
+fetch('https://www.emilybonar.com/NearestNamedColor/colors.json')
   .then(response => response.json())
   .then(data => {colors = data;// console.log(colors);
 });
