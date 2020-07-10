@@ -33,7 +33,7 @@ const pickr = new Pickr({
     // 'v' => opacity- and hue-slider can both only moved vertically.
     // 'hv' => opacity-slider can be moved horizontally and hue-slider vertically.
     // Can be used to apply custom layouts
-    sliders: 'v',
+    sliders: 'h',
 
     // Start state. If true 'disabled' will be added to the button's classlist.
     disabled: false,
@@ -51,7 +51,7 @@ const pickr = new Pickr({
     // - to keep current color in place until Save is pressed, set to `true`,
     // - to apply color to button and preview (save) in sync with each change
     //   (from picker or palette), set to `false`.
-    comparison: true,
+    comparison: false,
 
     // Default color. If you're using a named color such as red, white ... set
     // a value for defaultRepresentation too as there is no button for named-colors.
@@ -69,7 +69,7 @@ const pickr = new Pickr({
     // Option to keep the color picker always visible.
     // You can still hide / show it via 'pickr.hide()' and 'pickr.show()'.
     // The save button keeps its functionality, so still fires the onSave event when clicked.
-    showAlways: false,
+    showAlways: true,
 
     // Close pickr with a keypress.
     // Default is 'Escape'. Can be the event key or code.
@@ -95,7 +95,7 @@ const pickr = new Pickr({
         // Will be overwritten with true if preview, opacity or hue are true
         palette: true,
 
-        preview: true, // Display comparison between previous state and new color
+        preview: false, // Display comparison between previous state and new color
         opacity: false, // Display opacity slider
         hue: true,     // Display hue slider
 
@@ -121,9 +121,7 @@ const pickr = new Pickr({
 
 pickr.on('init', instance => {
     update(pickr)
-});
-
-pickr.on('change', instance => {
+}).on('change', instance => {
     update(pickr)
 });
 
