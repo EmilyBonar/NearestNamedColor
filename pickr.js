@@ -55,7 +55,7 @@ const pickr = new Pickr({
 
     // Default color. If you're using a named color such as red, white ... set
     // a value for defaultRepresentation too as there is no button for named-colors.
-    default: '#42445a',
+    default: '#000000',
 
     // Optional color swatches. When null, swatches are disabled.
     // Types are all those which can be produced by pickr e.g. hex(a), hsv(a), hsl(a), rgb(a), cmyk, and also CSS color names like 'magenta'.
@@ -118,6 +118,12 @@ const pickr = new Pickr({
         },
     },
 });
+var colors;
+fetch('https://www.emilybonar.com/NearestNamedColor/colors.txt')
+  .then(response => response.json())
+  .then(data => {colors = data;// console.log(colors);
+});
+
 
 pickr.on('init', instance => {
     update(pickr)
@@ -130,7 +136,31 @@ function update(pickr) {
     document.getElementById("HEX_in").innerHTML = HEX;
 
     let RGB = Colors.hex2rgb(HEX).RGB;
-    document.getElementById("RGB_in").innerHTML = RGB;
+    document.getElementById("RGB_in").innerHTML = RGB.replace(/ /g, ', ');
     
     document.getElementById("COLOR_in").style.backgroundColor = HEX;
+
+    closestColor = nearestColor(RGB)
+    document.getElementById("RGB_out").innerHTML = colors[closestColor][1].toString().replace(/,/g, ', ');
+    document.getElementById("HEX_out").innerHTML = "#" + colors[closestColor][0];
+    document.getElementById("COLOR_out").style.backgroundColor = closestColor;
+    document.getElementById("NAME").innerHTML = closestColor.replace(/([A-Z])/g, ' $1').trim();
+}
+
+function nearestColor(RGB) {
+    let regex = /[0-9]+/g;
+    let RGBarray = Array.from(regex[Symbol.matchAll](RGB), x => x[0]);
+    function distance(RGB1, RGB2) {
+        return((RGB2[0]-RGB1[0])**2 + (RGB2[1]-RGB1[1])**2 + (RGB2[2]-RGB1[2])**2);
+    }
+    let closestColor;
+    let dist = 195075;
+    for (color in colors) {
+        newdist = distance(RGBarray, colors[color][1]);
+        if (newdist < dist) {
+            dist = newdist;
+            closestColor = color;
+        }
+    }
+    return(closestColor)
 }
