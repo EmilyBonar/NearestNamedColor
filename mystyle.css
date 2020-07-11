@@ -24,6 +24,7 @@ h1 {
   background-color: black;
   width: 100px;
   background-clip: content-box;
+  -webkit-background-clip: content-box;
   border-radius: 5px;
   
 }
