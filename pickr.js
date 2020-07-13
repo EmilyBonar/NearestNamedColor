@@ -121,7 +121,7 @@ const pickr = new Pickr({
 var colors;
 fetch('https://www.emilybonar.com/NearestNamedColor/colors.json')
   .then(response => response.json())
-  .then(data => {colors = data;// console.log(colors);
+  .then(data => {colors = data;
 });
 
 
@@ -133,8 +133,8 @@ function update(pickr) {
     let HEX = pickr.getColor().toHEXA().toString();
     document.getElementById("HEX_in").innerHTML = HEX;
 
-    let RGB = Colors.hex2rgb(HEX).RGB;
-    document.getElementById("RGB_in").innerHTML = RGB.replace(/ /g, ', ');
+    let RGB = hex2rgb(HEX);
+    document.getElementById("RGB_in").innerHTML = RGB;
     
     document.getElementById("COLOR_in").style.backgroundColor = HEX;
 
@@ -161,4 +161,12 @@ function nearestColor(RGB) {
         }
     }
     return(closestColor)
+}
+
+function hex2rgb(HEX) {
+    var aRgbHex = HEX.substr(1).match(/.{1,2}/g);
+    var r = parseInt(aRgbHex[0], 16);
+    var g = parseInt(aRgbHex[1], 16);
+    var b = parseInt(aRgbHex[2], 16);
+    return `${r}, ${g}, ${b}`;
 }
