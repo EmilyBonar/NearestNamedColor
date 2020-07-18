@@ -1,54 +1,59 @@
 <!DOCTYPE html>
-<html lang="en"> 
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css"/> <!-- 'nano' theme -->
-        <link rel="stylesheet" type="text/css" href="mystyle.css">
-        <title>Nearest Named Color</title>
-    </head>
-<body>
-    <div class="column">
-        <h1>
-            Nearest Named Color
-        </h1>
-        <p>
-            Pick a color
-        </p>
-    </div>
-    <div class="column">
-        <div class="color-picker"></div>
-        <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
-        <script src="pickr.js"></script>
-        <br>
-        <table style='background-color: rgb(255, 255, 255);width: 50%;'>
-            <tr>
-                <th>
-                    <p>RGB</p>
-                </th>
-                <th>
-                    <p>HEX</p>
-                </th>
-                <th>
-                    <p>COLOR</p>
-                </th>
-            </tr>
-            <tr>
-                <td id="RGB_in">0, 0, 0</td>
-                <td id="HEX_in">#000000</td>
-                <td class='color' id="COLOR_in"></td>
-            </tr>
-            <tr>
-                <td id="RGB_out">0, 0, 0</td>
-                <td id="HEX_out">#000000</td>
-                <td class='color' id="COLOR_out"></td>
-            </tr>
-        </table>
-        <br>
-        <div>
-            <h2 id="NAME">Black</h2>
-        </div>
-        <br>
-    </div>
-</body>
+<html lang="en">
+	<html>
+		<head>
+			<meta charset="utf-8" />
+			<link
+				rel="stylesheet"
+				href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css"
+			/>
+			<!-- 'nano' theme -->
+			<link rel="stylesheet" type="text/css" href="mystyle.css" />
+			<title>Nearest Named Color</title>
+		</head>
+		<body>
+			<div class="column">
+				<h1>
+					Nearest Named Color
+				</h1>
+				<p>
+					Pick a color
+				</p>
+			</div>
+			<div class="column">
+				<div class="color-picker"></div>
+				<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+				<script src="pickr.js"></script>
+				<br />
+				<table style="background-color: rgb(255, 255, 255); width: 50%;">
+					<tr>
+						<th>
+							<p>RGB</p>
+						</th>
+						<th>
+							<p>HEX</p>
+						</th>
+						<th>
+							<p>COLOR</p>
+						</th>
+					</tr>
+					<tr>
+						<td id="RGB_in">0, 0, 0</td>
+						<td id="HEX_in">#000000</td>
+						<td class="color" id="COLOR_in"></td>
+					</tr>
+					<tr>
+						<td id="RGB_out">0, 0, 0</td>
+						<td id="HEX_out">#000000</td>
+						<td class="color" id="COLOR_out"></td>
+					</tr>
+				</table>
+				<br />
+				<div>
+					<h2 id="NAME">Black</h2>
+				</div>
+				<br />
+			</div>
+		</body>
+	</html>
 </html>
