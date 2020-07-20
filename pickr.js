@@ -54,7 +54,7 @@ const pickr = new Pickr({
 
 	// Default color. If you're using a named color such as red, white ... set
 	// a value for defaultRepresentation too as there is no button for named-colors.
-	default: "#000000",
+	default: "#ADD8E6",
 
 	// Optional color swatches. When null, swatches are disabled.
 	// Types are all those which can be produced by pickr e.g. hex(a), hsv(a), hsl(a), rgb(a), cmyk, and also CSS color names like 'magenta'.
