@@ -130,7 +130,7 @@ function update(pickr) {
 	let HEX = pickr.getColor().toHEXA().toString();
 	document.getElementById("HEX_in").innerHTML = HEX;
 
-	let RGB = hex2rgb(HEX);
+	let RGB = pickr.getColor().toRGBA().toString(0);
 	document.getElementById("RGB_in").innerHTML = RGB;
 
 	document.getElementById("COLOR_in").style.backgroundColor = HEX;
@@ -141,10 +141,20 @@ function update(pickr) {
 		.replace(/,/g, ", ");
 	document.getElementById("HEX_out").innerHTML = "#" + colors[closestColor][0];
 	document.getElementById("COLOR_out").style.backgroundColor = closestColor;
-	document.getElementById("body").style.backgroundColor = closestColor;
+
 	document.getElementById("NAME").innerHTML = closestColor
 		.replace(/([A-Z])/g, " $1")
 		.trim();
+
+	let HSL = pickr.getColor().toHSLA();
+	let lightness = HSL[2];
+	document.getElementById("body").style.backgroundColor = closestColor;
+	document.getElementById("link").style.backgroundColor = closestColor;
+	if (lightness < 40) {
+		document.getElementById("link").style.color = "white";
+	} else {
+		document.getElementById("link").style.color = "black";
+	}
 }
 
 function nearestColor(RGB) {
