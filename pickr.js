@@ -141,6 +141,7 @@ function update(pickr) {
 		.replace(/,/g, ", ");
 	document.getElementById("HEX_out").innerHTML = "#" + colors[closestColor][0];
 	document.getElementById("COLOR_out").style.backgroundColor = closestColor;
+	document.getElementById("body").style.backgroundColor = closestColor;
 	document.getElementById("NAME").innerHTML = closestColor
 		.replace(/([A-Z])/g, " $1")
 		.trim();
