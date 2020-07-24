@@ -131,7 +131,7 @@ function update(pickr) {
 	document.getElementById("HEX_in").innerHTML = HEX;
 
 	let RGB = pickr.getColor().toRGBA().toString(0);
-	document.getElementById("RGB_in").innerHTML = RGB;
+	document.getElementById("RGB_in").innerHTML = RGB.slice(5, RGB.length - 4);
 
 	document.getElementById("COLOR_in").style.backgroundColor = HEX;
 
@@ -177,12 +177,4 @@ function nearestColor(RGB) {
 		}
 	}
 	return closestColor;
-}
-
-function hex2rgb(HEX) {
-	var aRgbHex = HEX.substr(1).match(/.{1,2}/g);
-	var r = parseInt(aRgbHex[0], 16);
-	var g = parseInt(aRgbHex[1], 16);
-	var b = parseInt(aRgbHex[2], 16);
-	return `${r}, ${g}, ${b}`;
 }
