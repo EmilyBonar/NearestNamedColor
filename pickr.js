@@ -116,7 +116,7 @@ const pickr = new Pickr({
 	},
 });
 var colors;
-fetch("https://www.emilybonar.com/NearestNamedColor/colors.json")
+fetch(`${document.location.href}colors.json`)
 	.then((response) => response.json())
 	.then((data) => {
 		colors = data;
@@ -135,7 +135,7 @@ function update(pickr) {
 
 	document.getElementById("COLOR_in").style.backgroundColor = HEX;
 
-	closestColor = nearestColor(RGB);
+	let closestColor = nearestColor(RGB);
 	document.getElementById("RGB_out").innerHTML = colors[closestColor][1]
 		.toString()
 		.replace(/,/g, ", ");
