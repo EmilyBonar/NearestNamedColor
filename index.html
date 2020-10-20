@@ -10,6 +10,10 @@
 			<!-- 'nano' theme -->
 			<link rel="stylesheet" type="text/css" href="mystyle.css" />
 			<link
+				rel="stylesheet"
+				href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=block"
+			/>
+			<link
 				rel="apple-touch-icon"
 				sizes="180x180"
 				href="./apple-touch-icon.png"
@@ -31,21 +35,17 @@
 
 			<title>Nearest Named Color</title>
 		</head>
-		<body id="body">
+		<body>
+			<header>
+				<h1>Nearest Named Color</h1>
+			</header>
 			<div class="column">
-				<h1>
-					Nearest Named Color
-				</h1>
-				<p>
-					Pick a color
-				</p>
-			</div>
-			<div class="column">
+				<h2>Pick a color</h2>
 				<div class="color-picker"></div>
 				<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
 				<script src="pickr.js"></script>
 				<br />
-				<table style="background-color: rgb(255, 255, 255); width: 50%;">
+				<table style="background-color: rgb(255, 255, 255); width: 50%">
 					<tr>
 						<th>
 							<p>RGB</p>
@@ -71,10 +71,10 @@
 				<div>
 					<h2 id="NAME">Light Blue</h2>
 				</div>
-				<a id="link" href="https://github.com/EmilyBonar/NearestNamedColor">
-					View on GitHub
-				</a>
 			</div>
+			<a id="link" href="https://github.com/EmilyBonar/NearestNamedColor">
+				View on GitHub
+			</a>
 		</body>
 	</html>
 </html>

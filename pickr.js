@@ -116,7 +116,7 @@ const pickr = new Pickr({
 	},
 });
 var colors;
-fetch(`${document.location.href}colors.json`)
+fetch(`./colors.json`)
 	.then((response) => response.json())
 	.then((data) => {
 		colors = data;
@@ -148,12 +148,14 @@ function update(pickr) {
 
 	let HSL = pickr.getColor().toHSLA();
 	let lightness = HSL[2];
-	document.getElementById("body").style.backgroundColor = closestColor;
+	document.querySelector("body").style.backgroundColor = closestColor;
 	document.getElementById("link").style.backgroundColor = closestColor;
 	if (lightness < 40) {
+		document.querySelector("header").style.color = "white";
 		document.getElementById("link").style.color = "white";
 	} else {
 		document.getElementById("link").style.color = "black";
+		document.querySelector("header").style.color = "black";
 	}
 }
 
